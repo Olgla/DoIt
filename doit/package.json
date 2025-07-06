@@ -12,7 +12,6 @@
     "optimizer",
     "best task"
   ],
-  "license": "Olena Gladenko",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
