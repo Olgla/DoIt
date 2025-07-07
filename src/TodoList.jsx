@@ -1,8 +1,10 @@
-import './App.css';
+{
+  /*export function TodoList() {...} //EXPORT NAMED COMPOPNENT */
+}
 
-function App() {
+function TodoList() {
   const todos = [
-    { id: 1, title: 'review resourcws' },
+    { id: 1, title: 'review resources' },
     { id: 2, title: 'take notes' },
     { id: 3, title: 'code the app' },
   ];
@@ -19,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default TodoList;
