@@ -1,8 +1,8 @@
 export function TodoForm() {
   return (
     <form action="">
-      <label>To Do</label>
-      <input type="text" name="todoName" />
+      <label htmlFor="todoTitle">Todo</label>
+      <input type="text" id="todoTitle" />
       <button>Add Todo</button>
     </form>
   );

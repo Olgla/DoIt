@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <div>
-        <TodoForm />
         <TodoList />
+        <TodoForm />
       </div>
     </>
   );
