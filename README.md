@@ -1,3 +1,14 @@
-#DoIt is a simple to-do lists app
-Cope the code from the project main page and run index.html file. Or install Live server extention and run it.
-To run dev version, in the terminal enter "npm run dev"
+# DoIt
+
+**DoIt** is a lightweight and intuitive to-do list application designed to help you organize your tasks efficiently.
+
+## Run locally
+
+- Copy the code from the project’s main page.
+- Install dependancies: enter "npm install" in your terminal
+- To run development server, enter "npm run dev" in the terminal
+- Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## Prod version
+
+Is under development, and the link will be provided as soon as available

@@ -1,5 +1,6 @@
 {
-  /*export function TodoList() {...} //EXPORT NAMED COMPOPNENT */
+  /*export function TodoList() {...} //EXPORT NAMED COMPOPNENT //THIS IS ACOMMENT SYNTAX
+  /*export default function TodoList() {...} another option- and no export below AS DEFAULT*/
 }
 
 function TodoList() {
