@@ -1,7 +1,9 @@
 {
-  /*export function TodoList() {...} //EXPORT NAMED COMPOPNENT //THIS IS ACOMMENT SYNTAX
-  /*export default function TodoList() {...} another option- and no export below AS DEFAULT*/
+  /*export function TodoList() {...} //EXPORT NAMED COMPOPNENT //THIS IS A COMMENT SYNTAX
+  /*export default function TodoList() {...} another option- and no export below AS DEFAULT. Shares all methods from the file*/
 }
+
+import TodoListItem from './TodoListItem';
 
 function TodoList() {
   const todos = [
@@ -13,8 +15,10 @@ function TodoList() {
   return (
     <div>
       <ul>
+        {/*map will add as many TodoListItem components as const todos has
+        key is util not used in child, title will go to the child */}
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
+          <TodoListItem key={todo.id} title={todo.title} />
         ))}
       </ul>
     </div>
