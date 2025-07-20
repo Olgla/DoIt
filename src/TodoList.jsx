@@ -18,7 +18,7 @@ function TodoList() {
         {/*map will add as many TodoListItem components as const todos has
         key is util not used in child, title will go to the child */}
         {todos.map((todo) => (
-          <TodoListItem key={todo.id} title={todo.title} />
+          <TodoListItem key={todo.id} todo={todo} />
         ))}
       </ul>
     </div>
