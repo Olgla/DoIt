@@ -1,4 +1,4 @@
-export function TodoForm() {
+export function TodoForm(onAddTodo) {
   return (
     <form action="">
       <label htmlFor="todoTitle">Todo</label>
