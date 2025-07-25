@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import './/styles/App.css';
 import TodoList from './TodoList';
 {
@@ -8,6 +8,12 @@ import { TodoForm } from './TodoForm';
 {
   /* import NAMED component */
 }
+
+const todos = [
+  { id: 1, title: 'review resources' },
+  { id: 2, title: 'take notes' },
+  { id: 3, title: 'code the app' },
+];
 
 function App() {
   {
@@ -30,7 +36,7 @@ function App() {
     <>
       <h1>Todo List</h1>
       <TodoForm onAddTodo={addTodo} />
-      <TodoList />
+      <TodoList todoList={todoList} />
     </>
   );
 }
