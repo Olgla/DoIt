@@ -14,7 +14,7 @@ export default defineConfig([
         version: 'detect',
       },
     },
-    plugins: [react, reactHooks],
+    plugins: { react },
     extends: [
       js.configs.recommended,
       reactHooks.configs['recommended-latest'],
@@ -35,6 +35,13 @@ export default defineConfig([
       ...react.configs['jsx-runtime'].rules,
       'no-unused-vars': 'warn', //this changes the error to a warning
       'react/prop-types': 'off', //this suppresses warnings about not using prop-types
+
+      'no-multiple-empty-lines': [
+        'error',
+        {
+          max: 2, // Max empty lines anywhere in the file
+        },
+      ],
     },
   },
 ]);
