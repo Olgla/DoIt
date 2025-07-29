@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 export function TodoForm({ onAddTodo }) {
-  const todoTitleInput = useRef('');
+  const todoTitleInput = useRef(null);
 
   function handleAddTodo(event) {
     event.preventDefault();
@@ -16,7 +16,7 @@ export function TodoForm({ onAddTodo }) {
     <form onSubmit={handleAddTodo}>
       <label htmlFor="todoTitle">Todo</label>
       <input type="text" id="todoTitle" name="title" ref={todoTitleInput} />
-      <button>Add Todo</button>
+      <button type="submit">Add Todo</button>
     </form>
   );
 }

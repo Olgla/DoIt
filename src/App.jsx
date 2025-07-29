@@ -9,12 +9,6 @@ import { TodoForm } from './TodoForm';
   /* import NAMED component */
 }
 
-const todos = [
-  { id: 1, title: 'review resources' },
-  { id: 2, title: 'take notes' },
-  { id: 3, title: 'code the app' },
-];
-
 function App() {
   {
     /*const [taskCurrentState, setNewStateFunction] = useState('new state value'); //my destructured variables names*/
