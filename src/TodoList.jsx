@@ -4,14 +4,21 @@
 }
 import TodoListItem from './TodoListItem';
 
-function TodoList({ todoList }) {
+function TodoList({ todoList, onCompleteTodo }) {
+  const filteredTodoList = todoList.filter((todo) => !todo.isCompleted);
+
+  if (todoList.length === 0) {
+    return <p>Add todo above to get started</p>;
+  }
   return (
     <div>
       <ul>
-        {/*map will add as many TodoListItem components as const todos has
-        key is util not used in child, title will go to the child */}
-        {todoList.map((todo) => (
-          <TodoListItem key={todo.id} todo={todo} />
+        {filteredTodoList.map((todo) => (
+          <TodoListItem
+            key={todo.id}
+            todo={todo}
+            onCompleteTodo={() => onCompleteTodo(todo.id)}
+          />
         ))}
       </ul>
     </div>
