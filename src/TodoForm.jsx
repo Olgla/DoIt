@@ -6,7 +6,6 @@ export function TodoForm({ onAddTodo }) {
 
   function handleAddTodo(event) {
     event.preventDefault();
-    const title = event.target.title.value;
 
     onAddTodo(workingTodoTitle);
     event.target.title.value = '';
@@ -25,7 +24,9 @@ export function TodoForm({ onAddTodo }) {
         ref={todoTitleInput}
         onChange={(event) => setWorkingTodoTitle(event.target.value)}
       />
-      <button type="submit">Add Todo</button>
+      <button type="submit" disabled={!workingTodoTitle.trim()}>
+        Add Todo
+      </button>
     </form>
   );
 }
