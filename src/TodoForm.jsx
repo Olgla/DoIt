@@ -8,7 +8,6 @@ export function TodoForm({ onAddTodo }) {
     event.preventDefault();
 
     onAddTodo(workingTodoTitle);
-    event.target.title.value = '';
     todoTitleInput.current.focus();
 
     setWorkingTodoTitle('');
@@ -21,6 +20,7 @@ export function TodoForm({ onAddTodo }) {
         type="text"
         id="todoTitle"
         name="title"
+        value={workingTodoTitle}
         ref={todoTitleInput}
         onChange={(event) => setWorkingTodoTitle(event.target.value)}
       />

@@ -13,7 +13,7 @@ export default function App() {
 
   function completeTodo(id) {
     const updatedTodos = todoList.map((todo) =>
-      todo.id === id ? { ...todoList, isCompleted: true } : todo
+      todo.id === id ? { ...todo, isCompleted: true } : todo
     );
 
     setTodoList(updatedTodos);
