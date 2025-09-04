@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import './/styles/App.css';
 import TodoList from './features/todolist/TodoList'; //import DEFAULT component
 import { TodoForm } from './features/TodoForm'; //import NAMED component
+import TodoList from './features/todolist/TodoList'; //import DEFAULT component
+import { TodoForm } from './features/TodoForm'; //import NAMED component
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
