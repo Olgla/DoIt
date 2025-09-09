@@ -4,6 +4,17 @@ import TodoList from './features/todolist/TodoList'; //import DEFAULT component
 // import { TodoForm } from './features/TodoForm'; //import NAMED component, no need to export default from TodoForm.jsx
 import TodoForm from './features/TodoForm';
 
+decodeURI(
+  'https://api.airtable.com/v0/airtable_table_id/Todos?sort%5B0%5D%5Bfield%5D=createdTime&sort%5B0%5D%5Bdirection%5D=desc'
+);
+const [sortField, setSortField] = useState('createdTime');
+const [sortDirection, setSortDirection] = useState('desc');
+
+function encodeUrl({ sortField, sortDirection }) {
+  let sortQuery = `sort[0][field]=${sortField}&sort[0][direction]=${sortDirection}`;
+  return encodeUri(`${url}?${sortQuery}`);
+}
+
 export default function App() {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +36,7 @@ export default function App() {
       };
 
       try {
-        const resp = await fetch(url, options);
+        const resp = await fetch(encodeUrl, options);
 
         if (!resp.ok) {
           if (!resp.ok) {
@@ -57,7 +68,8 @@ export default function App() {
     };
 
     fetchTodos();
-  }, []);
+  }, [sortDirection, sortField]);
+
   const addTodo = async (newTodo) => {
     const payload = {
       records: [
@@ -80,7 +92,7 @@ export default function App() {
     try {
       setIsSaving(true);
 
-      const resp = await fetch(url, options);
+      const resp = await fetch(encodeUrl, options);
       if (!resp.ok) {
         throw new Error(resp.errorMessage);
       }
@@ -132,7 +144,7 @@ export default function App() {
       body: JSON.stringify(payload),
     };
     try {
-      const resp = await fetch(url, options);
+      const resp = await fetch(encodeUrl, options);
       if (!resp.ok) {
         throw new Error(resp.errorMessage);
       }
@@ -177,7 +189,7 @@ export default function App() {
     try {
       setIsSaving(true);
 
-      const resp = await fetch(url, options);
+      const resp = await fetch(encodeUrl, options);
 
       if (!resp.ok) {
         throw new Error(resp.errorMessage);
