@@ -1,39 +1,46 @@
 export default function TodosViewForm({
-  sortDirection,
-  setSortDirection,
   sortField,
   setSortField,
+  sortDirection,
+  setSortDirection,
+  queryString,
+  setQueryString,
 }) {
   return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          e.preventRefresh();
-        }}
-      >
-        <label>
-          Sort by:
-          <select
-            onChange={(e) => setSortField(e.target.value)}
-            value={sortField}
-          >
-            <option value="title">Title</option>
-            <option value="createdTime">Time added</option>
-          </select>
-        </label>
+    <form onSubmit={(e) => e.preventDefault()}>
+      <label>
+        Sort by:
+        <select
+          value={sortField}
+          onChange={(e) => setSortField(e.target.value)}
+        >
+          <option value="title">Title</option>
+          <option value="createdTime">Time added</option>
+        </select>
+      </label>
 
-        <label>
-          Direction:
-          <select
-            onChange={(e) => setSortField(e.target.value)}
-            value={sortDirection}
-          >
-            <option value="asc">Ascending</option>
-            <option value="dsc">Descendingd</option>
-          </select>
-        </label>
-      </form>
-    </div>
+      <label>
+        Direction:
+        <select
+          value={sortDirection}
+          onChange={(e) => setSortDirection(e.target.value)}
+        >
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+
+      <label>
+        Search todos:
+        <input
+          type="text"
+          value={queryString}
+          onChange={(e) => setQueryString(e.target.value)}
+        />
+        <button type="button" onClick={() => setQueryString('')}>
+          Clear
+        </button>
+      </label>
+    </form>
   );
 }
