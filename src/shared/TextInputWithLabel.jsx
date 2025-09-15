@@ -1,5 +1,3 @@
-import TodoListItem from '../features/todolist/TodoListItem';
-
 function TextInputWithLabel({ elementId, labelText, onChange, ref, value }) {
   return (
     <>

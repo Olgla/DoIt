@@ -18,17 +18,14 @@ function App() {
   const [sortDirection, setSortDirection] = useState('desc');
   const [queryString, setQueryString] = useState('');
 
-  const encodeUrl = useCallback(
-    ({ sortField, sortDirection, queryString }) => {
-      let sortQuery = `sort[0][field]=${sortField}&sort[0][direction]=${sortDirection}`;
-      let searchQuery = '';
-      if (queryString) {
-        searchQuery = `&filterByFormula=SEARCH("${queryString}", {title})`;
-      }
-      return encodeURI(`${url}?${sortQuery}${searchQuery}`);
-    },
-    [] //queryString, sortDirection, sortField esLint told to remove these dependencies
-  );
+  const encodeUrl = useCallback(() => {
+    let sortQuery = `sort[0][field]=${sortField}&sort[0][direction]=${sortDirection}`;
+    let searchQuery = '';
+    if (queryString) {
+      searchQuery = `&filterByFormula=SEARCH("${queryString}", {title})`;
+    }
+    return encodeURI(`${url}?${sortQuery}${searchQuery}`);
+  }, [sortField, sortDirection, queryString]);
 
   // Fetch todos
   useEffect(() => {
@@ -40,10 +37,7 @@ function App() {
       };
 
       try {
-        const resp = await fetch(
-          encodeUrl({ sortField, sortDirection, queryString }),
-          options
-        );
+        const resp = await fetch(encodeUrl(), options);
 
         if (!resp.ok) throw new Error(resp.statusText || `HTTP ${resp.status}`);
         const { records } = await resp.json();
@@ -79,10 +73,7 @@ function App() {
 
     try {
       setIsSaving(true);
-      const resp = await fetch(
-        encodeUrl({ sortField, sortDirection, queryString }),
-        options
-      );
+      const resp = await fetch(encodeUrl(), options);
       if (!resp.ok) throw new Error(resp.statusText || `HTTP ${resp.status}`);
       const { records } = await resp.json();
       const saved = { id: records[0].id, ...records[0].fields };
@@ -113,10 +104,7 @@ function App() {
     };
 
     try {
-      const resp = await fetch(
-        encodeUrl({ sortField, sortDirection, queryString }),
-        options
-      );
+      const resp = await fetch(encodeUrl(), options);
       if (!resp.ok) throw new Error(resp.statusText || `HTTP ${resp.status}`);
     } catch (err) {
       setErrorMessage(
@@ -153,10 +141,7 @@ function App() {
     };
 
     try {
-      const resp = await fetch(
-        encodeUrl({ sortField, sortDirection, queryString }),
-        options
-      );
+      const resp = await fetch(encodeUrl(), options);
       if (!resp.ok) throw new Error(resp.statusText || `HTTP ${resp.status}`);
     } catch (err) {
       setErrorMessage(
