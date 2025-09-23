@@ -1,3 +1,4 @@
+import '../src/styles/App.module.css';
 import TodoList from './features/TodoList/TodoList';
 import TodoForm from './features/TodoForm';
 import { useState, useEffect, useCallback } from 'react';
@@ -176,7 +177,6 @@ function App() {
         setSortField={setSortField}
         sortDirection={sortDirection}
         setSortDirection={setSortDirection}
-        queryString={queryString}
         setQueryString={setQueryString}
       />
 
