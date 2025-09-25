@@ -1,4 +1,4 @@
-import '../src/styles/App.module.css';
+import styles from './styles/App.module.css';
 import TodoList from './features/TodoList/TodoList';
 import TodoForm from './features/TodoForm';
 import { useState, useEffect, useCallback } from 'react';
@@ -158,8 +158,8 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>My Todo App</h1>
+    <div className={styles.appContainer}>
+      <h1 className={styles.header}>My Todo App</h1>
 
       <TodoForm onAddTodo={addTodo} isSaving={isSaving} />
 
@@ -181,7 +181,7 @@ function App() {
       />
 
       {errorMessage && (
-        <div style={{ marginTop: 16 }}>
+        <div style={styles.error}>
           <hr />
           <p role="alert">Error: {errorMessage}</p>
           <button onClick={() => setErrorMessage('')}>Dismiss</button>
