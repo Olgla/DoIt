@@ -1,10 +1,22 @@
-import TodoListItem from '../features/todolist/TodoListItem';
+import styled from 'styled-components';
+import { forwardRef } from 'react';
 
-function TextInputWithLabel({ elementId, labelText, onChange, ref, value }) {
+const StyledLabel = styled.label`
+  padding: 0.5rem;
+`;
+
+const StyledInput = styled.input`
+  padding: 0.5rem;
+`;
+
+const TextInputWithLabel = forwardRef(function TextInputWithLabel(
+  { elementId, labelText, onChange, value },
+  ref
+) {
   return (
     <>
-      <label htmlFor={elementId}>{labelText}</label>
-      <input
+      <StyledLabel htmlFor={elementId}>{labelText}</StyledLabel>
+      <StyledInput
         type="text"
         id={elementId}
         ref={ref}
@@ -13,6 +25,6 @@ function TextInputWithLabel({ elementId, labelText, onChange, ref, value }) {
       />
     </>
   );
-}
+});
 
 export default TextInputWithLabel;
