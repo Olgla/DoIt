@@ -181,7 +181,7 @@ function App() {
       />
 
       {errorMessage && (
-        <div style={styles.error}>
+        <div className={styles.error}>
           <hr />
           <p role="alert">Error: {errorMessage}</p>
           <button onClick={() => setErrorMessage('')}>Dismiss</button>
