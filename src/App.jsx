@@ -3,6 +3,7 @@ import TodoList from './features/TodoList/TodoList';
 import TodoForm from './features/TodoForm';
 import { useState, useEffect, useCallback } from 'react';
 import TodosViewForm from './features/TodosViewForm';
+import { initialState } from './reducers/todos.reducer.js';
 
 const url = `https://api.airtable.com/v0/${import.meta.env.VITE_BASE_ID}/${
   import.meta.env.VITE_TABLE_NAME
@@ -14,7 +15,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isSaving, setIsSaving] = useState(false);
-
   const [sortField, setSortField] = useState('createdTime');
   const [sortDirection, setSortDirection] = useState('desc');
   const [queryString, setQueryString] = useState('');
@@ -160,18 +160,14 @@ function App() {
   return (
     <div className={styles.appContainer}>
       <h1 className={styles.header}>My Todo App</h1>
-
       <TodoForm onAddTodo={addTodo} isSaving={isSaving} />
-
       <TodoList
         todoList={todoList}
         isLoading={isLoading}
         onCompleteTodo={completeTodo}
         onUpdateTodo={updateTodo}
       />
-
       <hr />
-
       <TodosViewForm
         sortField={sortField}
         setSortField={setSortField}
