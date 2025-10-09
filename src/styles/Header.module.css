@@ -1,0 +1,22 @@
+.header {
+  font-size: 1em;
+  text-align: center;
+  color: #1e88a8;
+  margin-bottom: 20px;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.active {
+  color: gray;
+  text-decoration: none;
+}
+
+.inactive {
+  color: #337dc7;
+  text-decoration: none;
+}
