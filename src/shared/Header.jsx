@@ -4,8 +4,6 @@ import styles from '../styles/Header.module.css';
 export default function Header({ title }) {
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>{title}</h1>
-
       <nav className={styles.nav}>
         <NavLink
           to="/"
@@ -25,6 +23,8 @@ export default function Header({ title }) {
           About
         </NavLink>
       </nav>
+
+      <h1 className={styles.title}>{title}</h1>
     </header>
   );
 }

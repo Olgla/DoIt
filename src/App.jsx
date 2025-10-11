@@ -106,7 +106,7 @@ export default function App() {
   }
   //Complete Todo
   async function completeTodo(id) {
-    const original = todoState.todolist.find((t) => t.id === id);
+    const original = todoState.todoList.find((t) => t.id === id);
     dispatch({ type: todoActions.completeTodo, id });
     const payload = {
       records: [
