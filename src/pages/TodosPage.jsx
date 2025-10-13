@@ -27,13 +27,15 @@ export default function TodosPage({
   const itemsPerPage = 15;
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
 
-  const totalTodos = todoList.length;
-  const totalPages = Math.max(1, Math.ceil(totalTodos / itemsPerPage));
+  const filteredTodoList = todoList.filter((todo) => !todo.isCompleted);
 
   const indexOfFirstTodo = (currentPage - 1) * itemsPerPage;
   const indexOfLastTodo = indexOfFirstTodo + itemsPerPage;
-
-  const currentTodos = todoList.slice(indexOfFirstTodo, indexOfLastTodo);
+  const currentTodos = filteredTodoList.slice(
+    indexOfFirstTodo,
+    indexOfLastTodo
+  );
+  const totalPages = Math.ceil(filteredTodoList.length / itemsPerPage);
 
   function handlePreviousPage() {
     if (currentPage > 1) {
