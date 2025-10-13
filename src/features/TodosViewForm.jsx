@@ -74,7 +74,11 @@ function TodosViewForm({
           value={localQueryString}
           onChange={(e) => setLocalQueryString(e.target.value)}
         />
-        <StyledButton type="button" onClick={() => setLocalQueryString('')}>
+        <StyledButton
+          type="button"
+          onClick={() => setLocalQueryString('')}
+          disabled={!localQueryString}
+        >
           Clear
         </StyledButton>
       </StyledLabel>
